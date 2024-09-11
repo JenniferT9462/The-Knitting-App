@@ -1,0 +1,47 @@
+header {
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 10px;
+}
+body {
+    background-image: url(background3.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: darkslategrey;
+    text-align: center;
+}
+img {
+    width: 400px;
+    border-radius: 200px;
+    margin: 20px;
+    opacity: 75%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+
+}
+h2 {
+    background-color: antiquewhite;
+    opacity: 75%;
+    border-radius: 50%;
+}
+button {
+    background-color: teal;
+    border: none;
+    color: antiquewhite;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+}
+footer {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+}
+.logos {
+    width: 30px;
+    margin-top: 0px;
+}
+.footerPara {
+    margin-top: 25%;
+    font-size: larger;
+    font-weight: bold;
+}
