@@ -2,4 +2,4 @@
 
 ## Wireframe
 
-![wireframe](wireframe.png)
+![wireframe](img/wireframe.png)
