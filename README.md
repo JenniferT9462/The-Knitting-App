@@ -8,6 +8,7 @@ A place where you can find patterns, add patterns to your project's lists, get i
 
 ## Wireframe
 
+
 ### Splash Page
 
 ![wireframe for splash](img/splash.png)
@@ -27,4 +28,5 @@ The app will be using Ravelry API and a AI model from HuggingFace. The way this 
     - Example URL: https://api.ravelry.com/pattern_sources/${id}.json
 - Save user pick and details to localStorage - to be accessed later in user projects
 - AI integrated with pattern suggestions and step-by-step tutorials. - openAI or HuggingFace 
+
 
