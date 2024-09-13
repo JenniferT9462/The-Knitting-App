@@ -8,12 +8,8 @@ A place where you can find patterns, add patterns to your project's lists, get i
 
 ## Wireframe
 
-
-<<<<<<< HEAD
 ![wireframe](img/wireframe.png)
 
-=======
->>>>>>> 2d47a96a5a23df20f95f35d8fed36006d5efe204
 ### Splash Page
 
 ![wireframe for splash](img/splash.png)
