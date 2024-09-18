@@ -23,14 +23,6 @@ h2 {
     opacity: 75%;
     border-radius: 50%;
 }
-button {
-    background-color: teal;
-    border: none;
-    color: antiquewhite;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 20px;
-}
 footer {
     background-color: antiquewhite;
     display: flex;
@@ -44,4 +36,13 @@ footer {
     margin-top: 25%;
     font-size: larger;
     font-weight: bold;
+}
+#main-page-btn {
+    background-color: teal;
+    border: none;
+    color: antiquewhite;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    
 }
