@@ -24,7 +24,8 @@ The app will be using Ravelry API and a AI model from HuggingFace. The way this 
     - Example URL: https://api.ravelry.com/patterns/search.json?query=${query}
     - user picks one
 - Get pattern by ID from the user's pick and return pattern details. Such as, gauge, yarn suggestions, yarn weight, needle size, etc.
-    - Example URL: https://api.ravelry.com/pattern_sources/${id}.json
+    - Example URL: https://api.ravelry.com/patterns.json?ids=${ids}
 - Save user pick and details to localStorage - to be accessed later in user projects
+- Add new projects and track your progress
 - AI integrated with pattern suggestions and step-by-step tutorials. - openAI or HuggingFace 
 
