@@ -22,7 +22,7 @@ async function patternQuery() {
                 <img src="${data.patterns[i].first_photo.thumbnail_url}">
                 <p>Name: ${data.patterns[i].name}</p>
                 <p>By: ${data.patterns[i].designer.name}</p>
-                <button type="button" class="btn btn-success btn-sm" onclick="patternsById(${data.patterns[i].id})">
+                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="patternsById(${data.patterns[i].id})">
                     Get Details
                 </button>
                 <br><br>
@@ -52,8 +52,9 @@ async function patternsById(ids) {
     console.log(data2);
     //Proof of Life - factory function
     let details = createPattern(data2, ids);
-    //Render cleaned up pattern details to modal
+    //TODO: Render cleaned up pattern details to modal or css popup
     console.log(details);
+    renderDetails(details);
 };
 
 
