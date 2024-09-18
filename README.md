@@ -6,9 +6,7 @@ Find your yarn and your zen...
 
 A place where you can find patterns, add patterns to your project's lists, get inspiration and even tutorials. 
 
-## Wireframe
-
-![wireframe](img/wireframe.png)
+## Wireframes
 
 ### Splash Page
 
