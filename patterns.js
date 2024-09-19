@@ -35,19 +35,25 @@ function addToMyPatterns() {
 
 function renderPatterns() {
     myPatterns = JSON.parse(localStorage.getItem('myPatterns')) || [];
+    //Proof of Life and seeing the paths to each detail that I need to render
     console.log(myPatterns);
     for (let i = 0; i < myPatterns.length; i++) {
         // console.log(myPatterns[i][0].name);
         patternsOutput.innerHTML += `
-          <div class="col">
-            <h4>${myPatterns[i][0].name}</h4>
-            <img src="${myPatterns[i][0].image}">
-            <a href="${myPatterns[i][0].download}" target="_blank">Download</a>
-            <p>${myPatterns[i][0].yarn}</p>
-            <p>${myPatterns[i][0].yardage}</p>
-            <p>${myPatterns[i][0].needle_size}</p>
-            <p>${myPatterns[i][0].gauge}</p>
-          </div>  
+            <div class="col">
+             <div class="card" style="width: 200px;">
+                <img src="${myPatterns[i][0].image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${myPatterns[i][0].name}</h5>
+                    <a href="${myPatterns[i][0].download}" target="_blank" class="card-link">Download</a>
+                    <p class="card-text">Yarn: ${myPatterns[i][0].yarn}</p>
+                    <p class="card-text">Gauge: ${myPatterns[i][0].gauge}</p>
+                    <p class="card-text">Needle Size: ${myPatterns[i][0].needle_size}</p>
+                    <p class="card-text">Yardage: ${myPatterns[i][0].yardage}</p>
+                    <a href="#" class="btn btn-success btn-sm">Add to Projects</a>
+                </div>
+             </div>
+            </div>
         `;
     }
     patternCountOutput.innerHTML = myPatterns.length;
