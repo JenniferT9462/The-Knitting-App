@@ -13,7 +13,7 @@ function renderDetails(object) {
     `
 };
 
-// let patternCount = 0;
+
 let addToMyPatternsBtn = document.getElementById('addToMyPatternsBtn');
 let patternsOutput = document.getElementById('patternsOutput');
 let patternCountOutput = document.getElementById('patternCountOutput');
@@ -22,14 +22,11 @@ function addToMyPatterns() {
     console.log(patterns);
     //Push patterns into myPatterns
     myPatterns.push(patterns);
-    //Count my patterns
-    patternCount++;
-    console.log(patternCount);
     //Proof of Life
     console.log(myPatterns);
     //Save new pattern to local storage
     savePatterns(patterns)
-    //Clears patterns 
+    //Clears patterns - so next time it will only have the last/one pattern in patterns array
     patterns = [];
 };
 
@@ -56,6 +53,7 @@ function renderPatterns() {
             </div>
         `;
     }
+    //Adds myPatterns count
     patternCountOutput.innerHTML = myPatterns.length;
 }
 renderPatterns();
