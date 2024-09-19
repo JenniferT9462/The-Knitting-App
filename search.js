@@ -10,6 +10,7 @@ async function patternQuery() {
         method: 'GET',
         headers: headers
     });
+    //If response is not ok w/'!'
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }
@@ -52,9 +53,11 @@ async function patternsById(ids) {
     console.log(data2);
     //Proof of Life - factory function
     let details = createPattern(data2, ids);
-    //TODO: Render cleaned up pattern details to modal or css popup
+    //Proof of Life - make sure createPattern works
     console.log(details);
+    //Display details in the modal from main.html
     renderDetails(details);
+    //Push to a temporary array just to save it so I can use it if the user wants to add to myPatterns
     patterns.push(details);
 };
 
