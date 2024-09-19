@@ -25,7 +25,10 @@ function addToMyPatterns() {
     //Proof of Life
     console.log(myPatterns);
     //Save new pattern to local storage
-    savePatterns(patterns)
+    savePatterns(myPatterns);
+    //Render in real-time...fingers-crossed
+    patternsOutput.innerHTML = '';
+    renderPatterns();
     //Clears patterns - so next time it will only have the last/one pattern in patterns array
     patterns = [];
 };
@@ -47,7 +50,9 @@ function renderPatterns() {
                     <p class="card-text">Gauge: ${myPatterns[i][0].gauge}</p>
                     <p class="card-text">Needle Size: ${myPatterns[i][0].needle_size}</p>
                     <p class="card-text">Yardage: ${myPatterns[i][0].yardage}</p>
-                    <a href="#" class="btn btn-success btn-sm">Add to Projects</a>
+                    <button class="projectsBtn btn btn-success btn-sm" type="button">Add to Projects</button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="deletePattern(${myPatterns[i][0].id})">Delete</button>
+                    
                 </div>
              </div>
             </div>
@@ -57,6 +62,36 @@ function renderPatterns() {
     patternCountOutput.innerHTML = myPatterns.length;
 }
 renderPatterns();
+
+let deleteBtn = document.querySelectorAll('.deleteBtn');
+//Did another onclick to access the id and use in the function
+function deletePattern(id) {
+    console.log('deleteBtn is Alive!');
+    //Get myPatterns from local storage
+    const storedPatterns = JSON.parse(localStorage.getItem('myPatterns'));
+    //The object I want to single out and delete from the local storage array
+    const targetObject = id;
+    //Since myPatterns in local storage is an array I have to loop thru
+    for (let i = 0; i < storedPatterns.length; i++) {
+        //If the id matches any of the objects in the list
+        if (storedPatterns[i][0].id === targetObject) {
+            //Delete that object by using it's index
+            storedPatterns.splice(i, 1);
+            break;
+        }
+
+    }
+    //Update local storage
+    localStorage.setItem('myPatterns', JSON.stringify(storedPatterns));
+    //Empty pattern output before rendering so it doesn't double render
+    patternsOutput.innerHTML = '';
+    //Render updated patterns
+    renderPatterns();
+    //Update my patterns count
+    patternCountOutput = myPatterns.length;
+}
+
+
 
 
 
