@@ -7,8 +7,10 @@ const password = '4Nf33VTwOJW3j/TfgxH3/S0w/9YD3M3NTNW5/r0m';
 const headers = new Headers();
 headers.set('Authorization', 'Basic ' + btoa(username + ':' + password));
 
-//This is where I will store patterns
+//This is going to be my state
 let patterns = [];
+//This is where I will store patterns
+let myPatterns = [];
 
 //Factory function for myPatterns array
 function createPattern(data, ids) {
@@ -21,4 +23,16 @@ function createPattern(data, ids) {
     yardage: data.patterns[ids].yardage,
     needle_size: data.patterns[ids].pattern_needle_sizes[0].name
     }
+};
+
+//Saving patterns to local storage...
+// It parses it as JSON and returns it as a JavaScript object 
+// or array. If no data exists or the parsing fails, it returns 
+// an empty array. 
+function savePatterns(data) {
+    let existingData = JSON.parse(localStorage.getItem('myPatterns'))|| []; 
+    // Add new data to existing data
+    existingData.push(data);
+    // Save updated data back to local storage
+    localStorage.setItem('myPatterns', JSON.stringify(existingData));
 };

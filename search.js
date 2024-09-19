@@ -55,6 +55,7 @@ async function patternsById(ids) {
     //TODO: Render cleaned up pattern details to modal or css popup
     console.log(details);
     renderDetails(details);
+    patterns.push(details);
 };
 
 
