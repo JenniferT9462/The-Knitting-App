@@ -15,13 +15,15 @@ function addProjects() {
     myProject.addTask(taskName);
     myProject.getProgress();
     myProject.displayProgress();
-    saveProject(myProject);
     worksInProgress.push(myProject);
-    //Project count
-    console.log(worksInProgress.length);
-    projectCount.innerHTML = worksInProgress.length;
+    //Save to local storage
+    saveProjects();
+    //Clear output before render updated projects
+    projectsOutput.innerHTML = '';
+    //Render Updated WIPs
+    renderProjects();
     //Proof of Life
-    console.log(myProject);
+    console.log(worksInProgress);
     
 }
 //Proof of Life
@@ -56,10 +58,37 @@ class Project {
     }
 }
 
-function saveProject(project) {
-    let existingData = JSON.parse(localStorage.getItem('myProjects'))|| [];
-    // Add new data to existing data
-    existingData.push(project);
-    // Save updated data back to local storage
-    localStorage.setItem('myProjects', JSON.stringify(project));
-};
+function serializedProject(project) {
+    return {
+        name: project.name,
+        tasks: project.tasks,
+        completedTasks: project.completedTasks
+    }
+}
+
+function renderProjects() {
+    //Project count
+    let storedProjects = JSON.parse(localStorage.getItem('myProjects'));
+    console.log(storedProjects)
+    projectCount.innerHTML = storedProjects.length;
+    for (let i = 0; i < storedProjects.length; i++) {
+        projectsOutput.innerHTML += `
+            <div class="col">
+                <div class="card" style="width: 16rem;">
+                    <h4 class="card-title text-center">${storedProjects[i].name}</h4>
+                    <div class="card-body">
+                        <p class="card-text">Tasks: ${storedProjects[i].tasks[0].task}</p>
+                        <p class="card-text">Completed Tasks: ${storedProjects[i].completedTasks}</p>
+                        <p class="card-text">Completed: ${storedProjects[i].tasks[0].completed}</p>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                        <button class="btn btn-success btn-sm">Mark Complete</button>
+                        <button class="btn btn-warning btn-sm">Add Task</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    
+
+}
+renderProjects();
