@@ -17,6 +17,29 @@
     <div class="collapse" id="collapse1">
         <div class="container">
             <div id="patternsOutput" class="row"></div>
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Start Project</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <label for="projectName">Enter Project Title: </label>
+                            <input type="text" id="projectName">
+
+                            <label for="addTask">Enter task: </label>
+                            <input type="text" id="addTask">
+                        </form> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="saveProjectBtn" type="button" class="btn btn-success">Add Project</button>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -55,7 +78,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button onclick="addToMyPatterns()" type="button" class="btn btn-success">Add to My Patterns</button>
+                    <button id="addToMyPatternsBtn" type="button" class="btn btn-success">Add to My Patterns</button>
                 </div>
             </div>
             </div>
