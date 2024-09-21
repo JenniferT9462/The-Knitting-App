@@ -60,6 +60,7 @@ function saveProject() {
     saveProjects();
     projectsOutput.innerHTML = '';
     renderProjects();
+    projectCount.innerHTML = worksInProgress.projects.length;
 };
 saveProjectBtn.addEventListener('click', saveProject);
 
