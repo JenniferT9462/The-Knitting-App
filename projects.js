@@ -69,19 +69,19 @@ let projectCount = document.getElementById('projectCount');
 
 function renderProjects() {
     let myProjects = JSON.parse(localStorage.getItem('myProjects')) || [];
-    console.log(myProjects)
+    console.log(myProjects);
     for (let i = 0; i < myProjects.length; i++) {
         projectsOutput.innerHTML += `
             <div class="col">
                 <div class="card" style="width: 100px;">
                     <h6 class="card-title">${myProjects[i].name}</h6>
                     <p class="card-text">${myProjects[i].type}</p>
+                    <p class="card-text">${myProjects[i].tasks[0].task}</p>
                 </div>
             </div>
         `;
     }
-    
-    
+    projectCount.innerHTML = myProjects.length;
 }
 renderProjects();
 
@@ -98,7 +98,7 @@ function saveProjects() {
     console.log(cleanProjects);
 }
 function loadProjects() {
-    let savedProjects = JSON.parse(localStorage.getItem('myProjects'));
+    let savedProjects = JSON.parse(localStorage.getItem('myProjects')) || [];
     worksInProgress.projects = [];
     projectCount.innerHTML = savedProjects.length;
     for(let i = 0; i < savedProjects.length; i++) {
