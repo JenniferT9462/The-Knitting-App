@@ -37,6 +37,8 @@ function renderPatterns() {
     myPatterns = JSON.parse(localStorage.getItem('myPatterns')) || [];
     //Proof of Life and seeing the paths to each detail that I need to render
     console.log(myPatterns);
+    //Adds myPatterns count
+    patternCountOutput.innerHTML = myPatterns.length;
     for (let i = 0; i < myPatterns.length; i++) {
         // console.log(myPatterns[i][0].name);
         patternsOutput.innerHTML += `
@@ -57,8 +59,7 @@ function renderPatterns() {
             </div>
         `;
     }
-    //Adds myPatterns count
-    patternCountOutput.innerHTML = myPatterns.length;
+    
 }
 renderPatterns();
 
@@ -87,7 +88,7 @@ function deletePattern(id) {
     //Render updated patterns
     renderPatterns();
     //Update my patterns count
-    // patternCountOutput = myPatterns.length;
+    patternCountOutput = myPatterns.length;
 }
 
 
