@@ -1,6 +1,42 @@
 body {
     background-color: antiquewhite;
-    color: rgb(9, 89, 89);
-    
+    color: rgb(13, 112, 112);
+}
+h1 {
+    padding: 20px 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+}
+.nav-pills .nav-link.active {
+    background-color: teal;
+    color: antiquewhite;
+}
+#headerSpan {
+    font-size: 18px;
 }
 
+.btn {
+    padding: 2px;
+}
+#myPatternsDiv {
+    background-image: url(img/background4.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 12px;
+    height: 100%;
+}
+#searchForm {
+    background-image: url(img/background3.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 12px;
+}
+#wipDiv {
+    background-image: url(img/background3.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 12px;
+    height: 100%;
+}

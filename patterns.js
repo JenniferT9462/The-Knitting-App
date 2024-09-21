@@ -13,7 +13,6 @@ function renderDetails(object) {
     `
 };
 
-
 let addToMyPatternsBtn = document.getElementById('addToMyPatternsBtn');
 let patternsOutput = document.getElementById('patternsOutput');
 let patternCountOutput = document.getElementById('patternCountOutput');
@@ -32,6 +31,7 @@ function addToMyPatterns() {
     //Clears patterns - so next time it will only have the last/one pattern in patterns array
     patterns = [];
 };
+addToMyPatternsBtn.addEventListener('click', addToMyPatterns);
 
 function renderPatterns() {
     myPatterns = JSON.parse(localStorage.getItem('myPatterns')) || [];
@@ -50,9 +50,8 @@ function renderPatterns() {
                     <p class="card-text">Gauge: ${myPatterns[i][0].gauge}</p>
                     <p class="card-text">Needle Size: ${myPatterns[i][0].needle_size}</p>
                     <p class="card-text">Yardage: ${myPatterns[i][0].yardage}</p>
-                    <button class="projectsBtn btn btn-success btn-sm" type="button">Add to Projects</button>
+                    <button class="btn btn-success btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Start Project</button>
                     <button type="button" class="btn btn-danger btn-sm" onclick="deletePattern(${myPatterns[i][0].id})">Delete</button>
-                    
                 </div>
              </div>
             </div>
