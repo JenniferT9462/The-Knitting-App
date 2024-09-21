@@ -36,9 +36,3 @@ function savePatterns(data) {
     // Save updated data back to local storage
     localStorage.setItem('myPatterns', JSON.stringify(data));
 };
-function saveProjects() {
-    const serializedProjects = worksInProgress.map(serializedProject);
-    localStorage.setItem('myProjects', JSON.stringify(serializedProjects));
-    console.log(serializedProjects);
-}
-

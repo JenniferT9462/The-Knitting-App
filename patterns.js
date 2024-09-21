@@ -87,7 +87,7 @@ function deletePattern(id) {
     //Render updated patterns
     renderPatterns();
     //Update my patterns count
-    patternCountOutput = myPatterns.length;
+    // patternCountOutput = myPatterns.length;
 }
 
 
