@@ -57,12 +57,13 @@ class Project {
         });
     }
 }
-
+let idCounter = 3;
 function serializedProject(project) {
     return {
         name: project.name,
         tasks: project.tasks,
-        completedTasks: project.completedTasks
+        completedTasks: project.completedTasks,
+        id: idCounter++
     }
 }
 
@@ -80,9 +81,9 @@ function renderProjects() {
                         <p class="card-text">Tasks: ${storedProjects[i].tasks[0].task}</p>
                         <p class="card-text">Completed Tasks: ${storedProjects[i].completedTasks}</p>
                         <p class="card-text">Completed: ${storedProjects[i].tasks[0].completed}</p>
-                        <button class="btn btn-danger btn-sm">Delete</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteProject(${storedProjects[i].id})">Delete</button>
                         <button class="btn btn-success btn-sm">Mark Complete</button>
-                        <button class="btn btn-warning btn-sm">Add Task</button>
+                        <button class="addTaskBtn btn btn-warning btn-sm">Add Task</button>
                     </div>
                 </div>
             </div>
@@ -92,3 +93,37 @@ function renderProjects() {
 
 }
 renderProjects();
+
+
+function deleteProject(id) {
+    console.log('deleteProjectsBtn is Alive!');
+    //Get projects from local storage
+    const storedProjects = JSON.parse(localStorage.getItem('myProjects'));
+    //The object I want to single out and delete from the local storage array
+    const targetObject = id;
+    //Since myPatterns in local storage is an array I have to loop thru
+    for (let i = 0; i < storedProjects.length; i++) {
+        //If the id matches any of the objects in the list
+        if (storedProjects[i].id === targetObject) {
+            storedProjects.splice(i, 1);
+            break;
+        }
+    }
+    //Update local storage
+    localStorage.setItem('myProjects', JSON.stringify(storedProjects));
+    //Empty pattern output before rendering so it doesn't double render
+    projectsOutput.innerHTML = '';
+    //Render updated patterns
+    renderProjects();
+    //Update my projects count
+    projectCount = storedProjects.length;
+}
+let addTaskBtn = document.querySelectorAll('.addTaskBtn');
+function addTask() {
+    console.log('taskBtn is Alive!');
+    const userInput = prompt("Enter new task:");
+    console.log("User input:", userInput);
+} 
+addTaskBtn.forEach(btn => {
+    btn.addEventListener('click', addTask);
+});

@@ -2,13 +2,15 @@ header {
     background-color: antiquewhite;
     text-align: center;
     padding: 10px;
+    
 }
 body {
     background-image: url(img/background3.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    color: darkslategrey;
+    color: rgb(13, 112, 112);
     text-align: center;
+    height: 100%;
 }
 img {
     width: 400px;
@@ -16,7 +18,6 @@ img {
     margin: 20px;
     opacity: 75%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
-
 }
 h2 {
     background-color: antiquewhite;
@@ -44,5 +45,4 @@ footer {
     padding: 10px;
     border-radius: 10px;
     text-decoration: none;
-    
 }
