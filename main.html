@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <title>Zen Knits | main</title>
+</head>
+<body>
+    <header>
+        <h1 class="ms-2">Zen Knits | <span id="headerSpan">Find Your Yarn and Your Zen</span></h1>
+        <a href="index.html"><img src="img/logo2Nbg.png" width="112" alt="Hear-shaped ball of yarn"></a>
+    </header>
+    <div id="localNavDiv">
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Search</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Patterns(<span id="patternCountOutput"></span>)</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Projects(<span id="projectCount"></span>)</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content" id="pills-tabContent">
+
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+
+            <form id="searchForm" class="text-center">
+                <h1>Search for Free Patterns</h1>
+                <p id="searchParagraph">Search for: socks, scarf, bags, sweater, blankets, etc.</p>
+                <label for="patternSearch">Search Patterns: </label>
+                <input type="text" id="patternSearch">
+                <button type="button" class="btn btn-success btn-sm" id="searchBtn">Search</button>
+            </form>
+
+            <br>
+
+            <div id="searchDiv">
+
+                <h2 class="text-center">Search Results: </h2>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Pattern Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div id="detailsOutput"></div> 
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button id="addToMyPatternsBtn" type="button" class="btn btn-success">Add to My Patterns</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div id="searchOutput" class="row"></div>
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            <div id="myPatternsDiv">
+                <div class="container">
+                    <div id="patternsOutput" class="row"></div>
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel2">Start Project</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <label for="projectName">Enter Project Title: </label>
+                                        <input type="text" id="projectName">
+        
+                                        <label for="addTask">Enter task: </label>
+                                        <input type="text" id="addTask">
+                                    </form> 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button id="saveProjectBtn" type="button" class="btn btn-success">Add Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+            <div id="wipDiv">
+                <div class="containter">
+                    <!-- <h4>Works in Progress</h4> -->
+                </div>
+                <div class="container">
+                    <div id="projectsOutput" class="row"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+
+    <footer>
+        <div>
+            <p class="footerPara">About Us</p>
+            <a href="about.html">Learn more</a>
+        </div>
+
+        <div>
+            <p class="footerPara">Follow Us</p>
+            <a href="https://github.com/JenniferT9462" target="_blank">
+                <img src="img/githubLogo.png" class="logos" alt="Github Logo">
+            </a>
+            <a href="https://www.linkedin.com/in/jennifer-tarleton-11290350/" target="_blank">
+                <img src="img/linkedinLogo.png" class="logos" alt="Linkedin Logo">
+            </a>
+        </div>
+    </footer>
+
+    
+
+    
+  
+    
+
+
+
+    
+    <script src="app.js"></script>
+    <script src="search.js"></script>
+    <script src="patterns.js"></script>
+    <script src="projects.js"></script>
+    <!-- <script src="ai.js"></script> -->
+</body>
+</html>
