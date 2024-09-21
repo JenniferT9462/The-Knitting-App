@@ -1,19 +1,10 @@
 console.log('Hello from projects.js!');
-
-let projectsOutput = document.getElementById('projectsOutput');
-let saveProjectBtn = document.getElementById('saveProjectBtn');
-let projectCount = document.getElementById('projectCount');
-let projectName = document.getElementById('projectName');
-let addType = document.getElementById('addType')
+//Projects state
 let worksInProgress = {};
-//Popup a form to start new project
+//where new project will go
 worksInProgress.projects = [];
 
-
-//let nameInput = projectName.value;
-//let typeInput = addType.value;
 //Create project
-//title...tasks...type...
 function projectCreator(name, type) {
     let project = {
         name,
@@ -40,16 +31,78 @@ function projectCreator(name, type) {
                 console.log(`- ${t.task} [${t.completed ? 'completed' : 'pending'}]`);
             })
         }
-       
-
-
     }
     return project;
 }
 //Testing
-let myProject = projectCreator('I walk the line', 'socks');
-myProject.addTask('Buy Yarn');
-console.log(myProject);
-myProject.completeTask('Buy Yarn');
-console.log(myProject);
-myProject.displayStatus();
+// let myProject = projectCreator('I walk the line', 'socks');
+// myProject.addTask('Buy Yarn');
+// console.log(myProject);
+// myProject.completeTask('Buy Yarn');
+// console.log(myProject);
+// myProject.displayStatus();
+
+
+//Popup a form to start new project
+let saveProjectBtn = document.getElementById('saveProjectBtn');
+let projectName = document.getElementById('projectName');
+let addType = document.getElementById('addType')
+function saveProject() {
+    console.log('save projects btn is alive!')
+    let titleInput = projectName.value;
+    let typeInput = addType.value;
+    let project = projectCreator(titleInput, typeInput);
+    let task = prompt('Enter a task for you project:');
+    let taskString = task.toString();
+    project.addTask(taskString);
+    project.displayStatus();
+    worksInProgress.projects.push(project);
+    saveProjects();
+    projectsOutput.innerHTML = '';
+    renderProjects();
+};
+saveProjectBtn.addEventListener('click', saveProject);
+
+let projectsOutput = document.getElementById('projectsOutput');
+let projectCount = document.getElementById('projectCount');
+
+function renderProjects() {
+    let myProjects = JSON.parse(localStorage.getItem('myProjects')) || [];
+    console.log(myProjects)
+    for (let i = 0; i < myProjects.length; i++) {
+        projectsOutput.innerHTML += `
+            <div class="col">
+                <div class="card" style="width: 100px;">
+                    <h6 class="card-title">${myProjects[i].name}</h6>
+                    <p class="card-text">${myProjects[i].type}</p>
+                </div>
+            </div>
+        `;
+    }
+    
+    
+}
+renderProjects();
+
+function cleanUpProject(project) {
+    return {
+        name: project.name,
+        type: project.type,
+        tasks: project.tasks
+    }
+}
+function saveProjects() {
+    const cleanProjects = worksInProgress.projects.map(cleanUpProject);
+    localStorage.setItem('myProjects', JSON.stringify(cleanProjects));
+    console.log(cleanProjects);
+}
+function loadProjects() {
+    let savedProjects = JSON.parse(localStorage.getItem('myProjects'));
+    worksInProgress.projects = [];
+    projectCount.innerHTML = savedProjects.length;
+    for(let i = 0; i < savedProjects.length; i++) {
+        worksInProgress.projects.push(projectCreator(savedProjects[i].name, savedProjects[i].type));
+        console.log(worksInProgress.projects)
+    }
+}
+loadProjects();
