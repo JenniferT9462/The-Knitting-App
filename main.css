@@ -40,3 +40,17 @@ header {
     padding: 12px;
     height: 100%;
 }
+footer {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+}
+.logos {
+    width: 30px;
+    margin-top: 0px;
+}
+.footerPara {
+    margin-top: 25%;
+    font-size: larger;
+    font-weight: bold;
+}
