@@ -74,9 +74,11 @@ function renderProjects() {
         projectsOutput.innerHTML += `
             <div class="col">
                 <div class="card" style="width: 100px;">
-                    <h6 class="card-title">${myProjects[i].name}</h6>
-                    <p class="card-text">${myProjects[i].type}</p>
-                    <p class="card-text">${myProjects[i].tasks[0].task}</p>
+                    <h6 class="card-title">Project Title: ${myProjects[i].name}</h6>
+                    <p class="card-text">Project Type: ${myProjects[i].type}</p>
+                    <p class="card-text">Start Date: ${myProjects[i].startDate}</p>
+                   <!-- <button class="btn btn-success">Add Task</button> -->
+                    <button class="btn btn-danger">Delete</button>
                 </div>
             </div>
         `;
@@ -85,11 +87,13 @@ function renderProjects() {
 }
 renderProjects();
 
+let idCounter = 0;
 function cleanUpProject(project) {
     return {
         name: project.name,
         type: project.type,
-        tasks: project.tasks
+        id: idCounter++,
+        startDate: new Date().toJSON().slice(0, 10)
     }
 }
 function saveProjects() {
@@ -107,3 +111,5 @@ function loadProjects() {
     }
 }
 loadProjects();
+
+
