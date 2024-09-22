@@ -122,7 +122,13 @@
 
         <div class="tab-pane fade" id="pills-inspiration" role="tabpanel" aria-labelledby="pills-inspiration-tab" tabindex="0">
             <div class="containter">
-                <h4 class="text-center">Coming Soon...</h4>
+                <h4 class="text-center">Get a nice little knitting saying!</h4>
+                <form class="container" style="width: 18rem;">
+                    <label class="form-label" for="type">What do you want to knit? Scarf, hat, socks, etc</label>
+                    <input type="text" id="type" class="form-control">
+                    <button type="button" class="btn btn-success" id="getInstructionsBtn">Get Saying</button>
+                </form>
+                <div id="aiOutput"></div>
             </div>
         </div>
     </div>
@@ -158,6 +164,6 @@
     <script src="search.js"></script>
     <script src="patterns.js"></script>
     <script src="projects.js"></script>
-    <!-- <script src="ai.js"></script> -->
+    <script src="ai.js"></script>
 </body>
 </html>
