@@ -5,8 +5,8 @@ let aiOutput = document.getElementById('aiOutput');
 let typeInput = document.getElementById('type');
 
 let url = 'https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct/v1/chat/completions';
-let getInstructionsBtn = document.getElementById('getInstructionsBtn');
-async function fetchStepByStep() {
+let getInspirationBtn = document.getElementById('getInspirationBtn');
+async function fetchQuote() {
     let typeInputValue = typeInput.value;
     let prompt = `A cute saying about knitting a ${typeInputValue}.`;
     const response = await fetch(url, {
@@ -30,9 +30,10 @@ async function fetchStepByStep() {
     console.log(data);
     renderInspiration(data);
 };
-getInstructionsBtn.addEventListener('click', fetchStepByStep);
+getInspirationBtn.addEventListener('click', fetchQuote);
 
 function renderInspiration(data) {
+    aiOutput.style.display = "block";
     aiOutput.innerHTML = data.choices[0].message.content
 
 }
