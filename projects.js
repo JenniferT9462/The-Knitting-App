@@ -52,9 +52,9 @@ function saveProject() {
     let titleInput = projectName.value;
     let typeInput = addType.value;
     let project = projectCreator(titleInput, typeInput);
-    let task = prompt('Enter a task for you project:');
-    let taskString = task.toString();
-    project.addTask(taskString);
+    // let task = prompt('Enter a task for you project:');
+    // let taskString = task.toString();
+    // project.addTask(taskString);
     project.displayStatus();
     worksInProgress.projects.push(project);
     saveProjects();
