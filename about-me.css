@@ -1,0 +1,14 @@
+body {
+    background-color: antiquewhite;
+    color: rgb(13, 112, 112);
+}
+h1 {
+    padding: 20px 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+}
+#headerSpan {
+    font-size: 18px;
+}
