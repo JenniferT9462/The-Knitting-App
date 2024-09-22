@@ -54,3 +54,10 @@ footer {
     font-size: larger;
     font-weight: bold;
 }
+#aiOutput {
+    margin: auto;
+    padding: 8px;
+    margin-top: 20px;
+    display: none;
+}
+
