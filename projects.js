@@ -78,7 +78,7 @@ function renderProjects() {
                     <p class="card-text">Project Type: ${myProjects[i].type}</p>
                     <p class="card-text">Start Date: ${myProjects[i].startDate}</p>
                    <!-- <button class="btn btn-success">Add Task</button> -->
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" onclick="deleteProject(${myProjects[i].id})">Delete</button>
                 </div>
             </div>
         `;
@@ -113,3 +113,29 @@ function loadProjects() {
 loadProjects();
 
 
+//Did another onclick to access the id and use in the function
+function deleteProject(id) {
+    console.log('deleteBtn is Alive!');
+    //Get myPatterns from local storage
+    const storedProjects = JSON.parse(localStorage.getItem('myProjects'));
+    //The object I want to single out and delete from the local storage array
+    const targetObject = id;
+    //Since myPatterns in local storage is an array I have to loop thru
+    for (let i = 0; i < storedProjects.length; i++) {
+        //If the id matches any of the objects in the list
+        if (storedProjects[i].id === targetObject) {
+            //Delete that object by using it's index
+            storedProjects.splice(i, 1);
+            break;
+        }
+
+    }
+    //Update local storage
+    localStorage.setItem('myProjects', JSON.stringify(storedProjects));
+    //Empty pattern output before rendering so it doesn't double render
+    projectsOutput.innerHTML = '';
+    //Render updated patterns
+    renderProjects();
+    //Update my patterns count
+    projectCount = myPatterns.length;
+}
