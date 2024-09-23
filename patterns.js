@@ -30,6 +30,10 @@ function addToMyPatterns() {
     renderPatterns();
     //Clears patterns - so next time it will only have the last/one pattern in patterns array
     patterns = [];
+    // Alert that the pattern is now in myPatterns
+    alert('Pattern saved!');
+    
+    
 };
 addToMyPatternsBtn.addEventListener('click', addToMyPatterns);
 

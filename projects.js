@@ -61,6 +61,8 @@ function saveProject() {
     projectsOutput.innerHTML = '';
     renderProjects();
     projectCount.innerHTML = worksInProgress.projects.length;
+    //Alert that the project has been saved
+    alert('Project saved!');
 };
 saveProjectBtn.addEventListener('click', saveProject);
 
