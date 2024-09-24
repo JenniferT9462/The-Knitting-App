@@ -14,14 +14,14 @@ let myPatterns = [];
 //Factory function for myPatterns array
 function createPattern(data, ids) {
     return {
-    name: data.patterns[ids].name,
-    download: data.patterns[ids].download_location.url,
-    image: data.patterns[ids].photos[0].thumbnail_url,
-    gauge: data.patterns[ids].gauge_description,
-    yarn: data.patterns[ids].yarn_weight_description,
-    yardage: data.patterns[ids].yardage,
-    needle_size: data.patterns[ids].pattern_needle_sizes[0].name,
-    id: data.patterns[ids].id
+        name: data.patterns[ids].name,
+        download: data.patterns[ids].download_location.url,
+        image: data.patterns[ids].photos[0].thumbnail_url,
+        gauge: data.patterns[ids].gauge_description,
+        yarn: data.patterns[ids].yarn_weight_description,
+        yardage: data.patterns[ids].yardage,
+        needle_size: data.patterns[ids].pattern_needle_sizes[0].name,
+        id: data.patterns[ids].id
     }
 };
 
