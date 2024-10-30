@@ -33,7 +33,6 @@ function addToMyPatterns() {
     // Alert that the pattern is now in myPatterns
     alert('Pattern saved!');
     
-    
 };
 addToMyPatternsBtn.addEventListener('click', addToMyPatterns);
 
