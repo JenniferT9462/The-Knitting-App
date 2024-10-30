@@ -1,8 +1,8 @@
 console.log('Hello from app.js');
 //Handles the main logic of the application, local storage management
 //Fetch with Username and Password Authorization
-const username = process.env.RAVELRY_USERNAME;
-const password = process.env.RAVELRY_PASSWORD;
+const username = "read-b825a6f85ea6c17692eb433a9bb5668d";
+const password = "4Nf33VTwOJW3j/TfgxH3/S0w/9YD3M3NTNW5/r0m";
 
 
 
